@@ -8,8 +8,8 @@ datasource db {
 }
 
 model tutorials {
-  title       String   @db.VarChar(64)
-  description String   @db.VarChar(500)
-  published   Boolean? @default(false)
   id          Int      @id @default(autoincrement())
+  title       String?  @db.VarChar(64)
+  published   Boolean? @default(false)
+  description String?  @db.VarChar(500)
 }

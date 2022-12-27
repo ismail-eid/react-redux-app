@@ -8,6 +8,8 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+// routes
+require('./routes/tutorial.routes')(app);
 app.get('/', (req, res) => {
   res.send({ message: "Welcome to bezkoder application!" })
 })
