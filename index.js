@@ -10,8 +10,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // routes
 require('./routes/tutorial.routes')(app);
-app.get('/', (req, res) => {
-  res.send({ message: "Welcome to bezkoder application!" })
+// Express static file [must below the apiRouter]
+const path = __dirname + '/views/';
+app.use(express.static(path));
+app.get('/*', (req, res) => {
+  res.sendFile(path + 'index.html');
 })
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
